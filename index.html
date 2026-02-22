@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comparateur Petit Coeur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <h1>Comparateur d'images</h1>
+      <p>Choisis une image à gauche et une image à droite, puis lance la comparaison.</p>
+    </header>
+
+    <section class="compare-grid">
+      <article class="panel">
+        <h2>Image de gauche</h2>
+        <div class="preview-wrap">
+          <img id="leftPreview" alt="Prévisualisation gauche" />
+        </div>
+        <label for="leftSelect">Choisir une image :</label>
+        <select id="leftSelect" aria-label="Choix image gauche"></select>
+      </article>
+
+      <article class="panel">
+        <h2>Image de droite</h2>
+        <div class="preview-wrap">
+          <img id="rightPreview" alt="Prévisualisation droite" />
+        </div>
+        <label for="rightSelect">Choisir une image :</label>
+        <select id="rightSelect" aria-label="Choix image droite"></select>
+
+        <label for="rightUpload" class="upload-label">Ou ajouter une image depuis la galerie :</label>
+        <input id="rightUpload" type="file" accept="image/*" />
+      </article>
+    </section>
+
+    <section class="actions">
+      <button id="compareBtn" type="button">Comparer</button>
+      <p id="result" aria-live="polite">Le verdict apparaîtra ici.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
