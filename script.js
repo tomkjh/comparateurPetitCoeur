@@ -20,7 +20,7 @@ const leftImages = [
   },
   {
     id: "left-4",
-    label: "Petit langue",
+    label: "Petite langue",
     src: "images/imgGauche/langue.png",
     winText: "Un peu freaky avec sa langue mais qd même plus belle que toi."
   },
