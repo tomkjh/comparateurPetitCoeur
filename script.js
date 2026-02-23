@@ -80,6 +80,23 @@ const result = document.getElementById("result");
 const rightUpload = document.getElementById("rightUpload");
 
 let currentRightUploadedImage = null;
+let lastWinText = "";
+
+const leftTraits = {
+  "left-1": ["mignonne", "magnifique", "rayonnante"],
+  "left-2": ["belle", "douce", "naturellement belle"],
+  "left-3": ["cute", "tendre", "charmante"],
+  "left-4": ["drôle", "audacieuse", "craquante"],
+  "left-5": ["élégante", "focus", "stylée"],
+  "left-6": ["authentique", "attachante", "unique"]
+};
+const winTemplates = [
+  "Verdict: la photo de gauche gagne. Ma future femme est plus {leftTrait} que {right}.",
+  "La photo de gauche gagne clairement: Mon amoureuse est bien plus {leftTrait} que {right}.",
+  "Décision finale: la photo de gauche gagne. Mon petit coeur est trop {leftTrait}, {right} ne suit pas aujourd'hui.",
+  "Sans hésiter, la photo de gauche gagne: Mon chaton reste plus {leftTrait} que {right}.",
+  "Résultat officiel: la photo de gauche gagne. l'amour de ma vie domine ce round contre {right}."
+];
 
 function fillSelect(selectEl, items) {
   items.forEach((item) => {
@@ -108,6 +125,33 @@ function refreshPreviews() {
 
   leftPreview.src = left.src;
   rightPreview.src = right.src;
+}
+
+function pickRandom(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function pickRandomDifferent(arr, previous) {
+  if (arr.length <= 1) return arr[0] || "";
+  let next = pickRandom(arr);
+  while (next === previous) {
+    next = pickRandom(arr);
+  }
+  return next;
+}
+
+function getTrait(traitMap, id, fallback) {
+  return pickRandom(traitMap[id] || fallback);
+}
+
+function buildWinText(left, right) {
+  const template = pickRandomDifferent(winTemplates, lastWinText);
+  const leftTrait = getTrait(leftTraits, left.id, ["incroyable", "belle", "touchante"]);
+
+  return template
+    .replace("{left}", left.label)
+    .replace("{right}", right.label || "la photo de droite")
+    .replace("{leftTrait}", leftTrait)
 }
 
 fillSelect(leftSelect, leftImages);
@@ -153,5 +197,8 @@ rightUpload.addEventListener("change", (event) => {
 
 compareBtn.addEventListener("click", () => {
   const left = getLeftSelection();
-  result.textContent = left.winText;
+  const right = getRightSelection();
+  const text = buildWinText(left, right);
+  result.textContent = text;
+  lastWinText = text;
 });
