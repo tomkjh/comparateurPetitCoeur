@@ -78,7 +78,8 @@ body {
 label,
 select,
 input,
-button {
+button,
+.top-left-btn {
   font: inherit;
 }
 
@@ -89,7 +90,8 @@ label {
 }
 
 select,
-input[type="file"] {
+input[type="file"],
+input[type="text"] {
   width: 100%;
   padding: 0.6rem;
   border-radius: 10px;
@@ -106,7 +108,8 @@ input[type="file"] {
   text-align: center;
 }
 
-button {
+button,
+.top-left-btn {
   border: 0;
   border-radius: 999px;
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
@@ -116,7 +119,8 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+button:hover,
+.top-left-btn:hover {
   filter: brightness(1.05);
 }
 
@@ -134,8 +138,96 @@ button:hover {
   background: #fff8f3;
 }
 
+.top-left-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  position: fixed;
+  top: max(1rem, env(safe-area-inset-top));
+  left: max(1rem, env(safe-area-inset-left));
+  z-index: 1000;
+  min-height: 44px;
+  padding: 0.65rem 1rem;
+  line-height: 1;
+  box-shadow: 0 8px 20px #00000024;
+  touch-action: manipulation;
+}
+
+.word-form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.word-controls {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.word-controls input {
+  flex: 1;
+  min-width: 0;
+}
+
+.word-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.9rem 0 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.word-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.6rem 0.8rem;
+}
+
+.word-text {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.remove-word {
+  padding: 0.45rem 0.8rem;
+  flex-shrink: 0;
+}
+
+.empty-state {
+  margin-top: 0.9rem;
+  opacity: 0.8;
+}
+
 @media (max-width: 760px) {
   .compare-grid {
     grid-template-columns: 1fr;
+  }
+
+  .app {
+    padding-top: calc(4.75rem + env(safe-area-inset-top));
+  }
+
+  .top-left-btn {
+    top: max(0.65rem, env(safe-area-inset-top));
+    left: max(0.65rem, env(safe-area-inset-left));
+    padding: 0.6rem 0.95rem;
+    font-size: clamp(0.9rem, 3.2vw, 1rem);
+    max-width: calc(100vw - 1.3rem - env(safe-area-inset-left));
+    white-space: nowrap;
+  }
+
+  .word-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .word-controls button {
+    width: 100%;
   }
 }

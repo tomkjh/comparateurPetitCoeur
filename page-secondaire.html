@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>0 mot - Liste de mots</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="top-left-btn" href="index.html" aria-label="Retour a la page principale">Retour</a>
+
+  <main class="app">
+    <header class="hero">
+      <h1 id="pageTitle">0 raison</h1>
+    </header>
+
+    <section class="panel">
+      <h2>Liste de raisons</h2>
+      <ul id="wordList" class="word-list" aria-live="polite"></ul>
+      <p id="emptyState" class="empty-state">Aucune raison configure.</p>
+    </section>
+
+    <section class="actions">
+      <p>T'as tout lu ?! trop forte mon amour !!<br>Alors ça t'as convaincue ? Je t'aime petit coeur ❤️</p>
+    </section>
+  </main>
+
+  <script>
+    // Ajoute/supprime tes mots ici directement dans le code.
+    const WORDS = [
+      "Tes yeux",
+      "Tes levres (les deux hihi)",
+      "Tes petites pommettes que je peux mordre",
+      "Tes petites joues que je tire hehe",
+      "Tes cheveux qui sentent superrrr bon (et qui sont magnifiques hihi)",
+      "Ta langues (qui fait pleins de bêtises)",
+      "Ton nez percées (c'est vraiment trop beau)",
+      "Tes oreilles percées aussi (je me répète mais j'adore)",
+      "Tes petits bras (surtout quand ils m'enlacent)",
+      "Tes mains que j'adore tenir",
+      "Tes seins 🫣(ils sont vraiment beaux mon coeur)",
+      "Ton petit ventre (il est vraiment trop mignon je tombe amoureux a chaque fois)",
+      "Ton dos que j'adore caresser ou masser hihi",
+      "Tes fesses 🫣(elles sont vraiment magnifiques mon amour)",
+      "Tes jambes que j'adore sentir contre moi pendant nos calins hihi",
+      "Tes pieds que je veux mettre dans ma bouche hehehe",
+      "La 1ère fois qu'on a parlé",
+      "La 1ère fois que je t'ai caressé les cheveux en rentrant du press",
+      "La 1ère fois que je t'ai embrassé (même si j'ai pris mon temps hihi)",
+      "Pour m'avoir fait découvrir le wow hihi",
+      "Pareil pour pepe chicken",
+      "Je pense que je peux rassembler tout les plats que tu m'as fait en un seul point mdr",
+      "Quand on fait l'amour 🫣",
+      "Quand tu me chuchotes que tu m'aimes hihi",
+      "Quand tu me dis que je suis beau (même si c'est pas vrai 🫣(je rigole me tape pas...))",
+      "Quand tu me fais des gratouilles sans que je l'ai demandé",
+      "Quand tu me fais mes boutons et mes points noirs dans mon dos ou sur mon visage",
+      "Quand tu m'embrasses tout doucement la joue",
+      "Quand tu m'embrasses le cou aussi (pas les mêmes raisons hihi)",
+      "Quand on fait des calins tout doux",
+      "Quand je vois ta notification s'afficher sur mon téléphone",
+      "Les soirs où tu me surprenais à venir me voir à Clermont",
+      "Le soir où tu m'as proposé qu'on se mette ensemble (même si j'ai mis du temps à tilter mdr)",
+      "Quand tu m'embrasses en public 🤭",
+      "Les photos de toi que tu m'envoies quand tu t'ennuies",
+      "Quand tu es un peu trop alcoolisée et que je m'occupe de toi 🤭",
+      "Quand tu t'endors alors qu'on faisait juste des calins ou qu'on regardait un film",
+      "Quand tu venais à Clermont et que tu me laissais dormir sur toi pendant que tu regardais ton téléphone 🤭",
+      "Quand tu t'énerves pour la couette 🤭",
+      "Quand tu t'énerves tout court d'ailleurs t'es trop mignonne",
+      "Quand tu me voles ma nourriture !!",
+      "Mais que tu me donnes la tienne parce que tu sais que j'en veux",
+      "Quand on fait des calins où t'es carrément couchée sur moi (j'adore)",
+      "Quand tu me voles mes pulls et mes t-shirts pour avoir mon odeur",
+      "Quand tu me fais des bisous partout sur le ventre pour me dire que tu l'aimes..",
+      "Quand tu me passes doudou ou nanou ou bourriquet pour dormir quand t'es pas là",
+      "Quand tu mets ton super parfum qui sent super bon",
+      "Quand tu rigoles parce que je fais le couillon hihi",
+      "Quand tu me mords !!! (ça fait malllllll)",
+      "Quand tu colles tes fesses sur moi quand tu me tournes le dos pour dodo",
+      "Quand tu me dis que je suis ton gros bébé d'amour hihi",
+      "Quand tu boudes parce que je dit que t'es petite (alors que ta taille est parfaite mon amour t'es si mignonne)",
+      "Quand tu me regardes en souriant d'en bas (ma toute petite future femme 🤭)",
+      "Quand tu m'as fait le dessin de volt (c'était trop mignon !!!)",
+      "Quand tu m'as offert le super bouquet tout mignon",
+      "Quand on a fait les photos du photomaton (elles sont trop belles !! (faut qu'on en refasse une où on s'embrasse hihi))",
+      "Quand tu me rassure et que tu me dis que c'est moi qui te vois toute nue et que c'est moi que tu aimes",
+      "Quand tu souris (t'es tellement belle quand tu souris mon amour)",
+      "Quand tu me dis que tu m'aimes (même si je le sais déjà hihi)",
+      "Quand on se douche tout les deux (tout nu en plussss 🫣)",
+      "Les premiers soirs où on fumait à la fenêtre à bourges",
+      "Quand tu repostes mes storys insta de nous deux",
+      "Quand tu me dis que tu ne m'abandonneras pas",
+      "Quand tu viens me faire des calins sous ma veste pour etre plus proche de moi",
+      "Quand on fait des calins le matin",
+      "La fois où tu pouvais plus t'arrêter (et moi non plus) de m'embrasser après qu'on ait fait l'amour",
+      "Quand tu me parles de tes séries ou films que tu regardes",
+      "Dernièrement les petites sorties qu'on fait le soir",
+      "Quand tu me fais des gratouilles dans les cheveux sur le canapé",
+      "Quand tu me laisses choisir ce qu'on mange parce que t'arrives jamais à te décider",
+      "Le fait que t'aies une mémoire de poisson rouge hehe",
+      "Quand tu me rotes (vomis) dessus pour m'embeter",
+      "Le fait que tu sois la femme la plus courageuse que je connaisse (je serais toujours là pour te soutenir mon amour)",
+      "Quand tu m'envoies des vidéos mignonnes !",
+      "Quand tu me craches dessus sous la douche !",
+      "Quand on fait des bêtises sous la douche 🤭",
+      "Quand on s'appelle en facetime"
+    ];
+
+    const pageTitle = document.getElementById("pageTitle");
+    const wordList = document.getElementById("wordList");
+    const emptyState = document.getElementById("emptyState");
+
+    function renderWords() {
+      wordList.innerHTML = "";
+
+      WORDS.forEach((word) => {
+        const li = document.createElement("li");
+        li.className = "word-item";
+
+        const text = document.createElement("span");
+        text.className = "word-text";
+        text.textContent = word;
+
+        li.appendChild(text);
+        wordList.appendChild(li);
+      });
+
+      const count = WORDS.length;
+      const label = `${count} raison${count > 1 ? "s" : ""} pour ${count > 1 ? "lesquels" : "laquelle"} je t'aime ❤️`;
+      pageTitle.textContent = label;
+      document.title = `${label} - Liste de raisons`;
+      emptyState.hidden = count > 0;
+    }
+
+    renderWords();
+  </script>
+</body>
+</html>
