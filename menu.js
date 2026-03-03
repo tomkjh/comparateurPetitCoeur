@@ -5,14 +5,15 @@
     { href: "notifications.html", label: "Demandes" }
   ];
   const UPDATE_LOG = [
-    { at: "2026-03-03 13:35", text: "Ajout d'une zone d'information pour t'aider à voir ce qui change mon amour." },
-    { at: "2026-03-03 10:36", text: "Historique des envois + suppression individuelle/globale + copie texte cliqué dans zone de texte." },
-    { at: "2026-03-03 10:27", text: "Ajout de la page demandes avec envoi de notification sur mon téléphone." },
-    { at: "2026-03-03 10:18", text: "Indicateur du bouton de la page active (fond blanc + contour visible)." },
-    { at: "2026-03-03 09:55", text: "Remplacement du bouton fixe par un menu." },
-    { at: "2026-02-26 11:12", text: "Ajout de la page avec toutes les raisons." },
-    { at: "2026-02-23 14:38", text: "Ajout de nouveaux textes de victoire pour le comparateur." },
-    { at: "2026-02-22 10:47", text: "Lancement de la premiere page de comparaison avec images predefinies et possibilite d'importer une photo a droite." }
+    { at: "Le 03-03-2026 à 13:44", text: "Meilleur lisibilité du jour et de l'heure des maj." },
+    { at: "Le 03-03-2026 à 13:35", text: "Ajout d'une zone d'information pour t'aider à voir ce qui change mon amour." },
+    { at: "Le 03-03-2026 à 10:36", text: "Historique des envois + suppression individuelle/globale + copie texte cliqué dans zone de texte." },
+    { at: "Le 03-03-2026 à 10:27", text: "Ajout de la page demandes avec envoi de notification sur mon téléphone." },
+    { at: "Le 03-03-2026 à 10:18", text: "Indicateur du bouton de la page active (fond blanc + contour visible)." },
+    { at: "Le 03-03-2026 à 09:55", text: "Remplacement du bouton fixe par un menu." },
+    { at: "Le 26-02-2026 à 11:12", text: "Ajout de la page avec toutes les raisons." },
+    { at: "Le 23-02-2026 à 14:38", text: "Ajout de nouveaux textes de victoire pour le comparateur." },
+    { at: "Le 22-02-2026 à 10:47", text: "Lancement de la premiere page de comparaison avec images predefinies et possibilite d'importer une photo a droite." }
   ];
 
   function normalizeHtmlHref(rawHref) {
