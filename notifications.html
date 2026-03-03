@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demandes urgentes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <h1>Pour toutes tes demandes urgentes</h1>
+      <p>Ecris un message puis clique sur envoyer.</br> Je recevrais directement une notification sur mon téléphone.</p>
+    </header>
+
+    <section class="panel">
+      <h2>Texte à envoyer</h2>
+      <form id="notifyForm" class="word-form">
+        <textarea
+          id="messageInput"
+          rows="6"
+          maxlength="500"
+          placeholder="Ex: Je veux manger des suhis maintenant mon chéri d'amour."
+          required
+        ></textarea>
+        <button id="sendBtn" type="submit">Envoyer</button>
+      </form>
+      <p id="notifyResult" class="empty-state" aria-live="polite">Aucun envoi pour le moment.</p>
+    </section>
+
+    <section class="panel">
+      <div class="history-header">
+        <h2>Historique</h2>
+        <button id="clearHistoryBtn" type="button" class="history-clear-btn">Tout supprimer</button>
+      </div>
+      <ul id="historyList" class="notify-history" aria-live="polite"></ul>
+      <p id="historyEmpty" class="empty-state">Aucun message dans l'historique.</p>
+    </section>
+  </main>
+
+  <script src="menu.js"></script>
+  <script src="notify.js"></script>
+</body>
+</html>

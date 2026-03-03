@@ -1,7 +1,8 @@
 (() => {
   const KNOWN_PAGES = [
     { href: "index.html", label: "Comparateur" },
-    { href: "page-secondaire.html", label: "Raisons" }
+    { href: "page-secondaire.html", label: "Raisons" },
+    { href: "notifications.html", label: "Demandes" }
   ];
 
   function normalizeHtmlHref(rawHref) {
