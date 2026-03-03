@@ -492,6 +492,20 @@ button:disabled {
     min-width: 200px;
   }
 
+  .menu-toggle,
+  .updates-toggle {
+    background: #ffffff;
+    border-color: #e3bda8;
+    box-shadow: 0 10px 24px #0000001f;
+  }
+
+  .menu-content,
+  .updates-content {
+    background: #ffffff;
+    border-color: #e3bda8;
+    box-shadow: 0 12px 28px #0000001f;
+  }
+
   .top-left-btn {
     white-space: normal;
   }

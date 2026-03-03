@@ -5,9 +5,11 @@
     { href: "notifications.html", label: "Demandes" }
   ];
   const UPDATE_LOG = [
-    { at: "Le 03-03-2026 à 13:44", text: "Meilleur lisibilité du jour et de l'heure des maj." },
+    { at: "Le 03-03-2026 à 13:52", text: "Meilleure lisibilité générale des deux menus (plus de fond transparent)." },
+    { at: "Le 03-03-2026 à 13:44", text: "Meilleur lisibilité du jour et de l'heure du menu maj." },
     { at: "Le 03-03-2026 à 13:35", text: "Ajout d'une zone d'information pour t'aider à voir ce qui change mon amour." },
-    { at: "Le 03-03-2026 à 10:36", text: "Historique des envois + suppression individuelle/globale + copie texte cliqué dans zone de texte." },
+    { at: "Le 03-03-2026 à 10:39", text: "Copie du texte, cliqué dans l'historique, dans la zone de texte au dessus." },
+    { at: "Le 03-03-2026 à 10:36", text: "Historique des envois + suppression individuelle/globale." },
     { at: "Le 03-03-2026 à 10:27", text: "Ajout de la page demandes avec envoi de notification sur mon téléphone." },
     { at: "Le 03-03-2026 à 10:18", text: "Indicateur du bouton de la page active (fond blanc + contour visible)." },
     { at: "Le 03-03-2026 à 09:55", text: "Remplacement du bouton fixe par un menu." },
