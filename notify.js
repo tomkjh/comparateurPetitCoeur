@@ -146,10 +146,24 @@ notifyForm.addEventListener("submit", async (event) => {
 
 historyList.addEventListener("click", (event) => {
   const btn = event.target.closest(".history-remove-btn");
-  if (!btn) return;
-  const { id } = btn.dataset;
-  if (!id) return;
-  removeHistoryEntry(id);
+  if (btn) {
+    const { id } = btn.dataset;
+    if (!id) return;
+    removeHistoryEntry(id);
+    return;
+  }
+
+  const item = event.target.closest(".history-item");
+  if (!item) return;
+
+  const textEl = item.querySelector(".history-text");
+  const text = textEl?.textContent?.trim();
+  if (!text) return;
+
+  messageInput.value = text;
+  messageInput.focus();
+  messageInput.setSelectionRange(messageInput.value.length, messageInput.value.length);
+  setResult("Message recopie depuis l'historique.");
 });
 
 clearHistoryBtn.addEventListener("click", () => {

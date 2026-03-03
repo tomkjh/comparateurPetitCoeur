@@ -4,6 +4,16 @@
     { href: "page-secondaire.html", label: "Raisons" },
     { href: "notifications.html", label: "Demandes" }
   ];
+  const UPDATE_LOG = [
+    { at: "2026-03-03 13:35", text: "Ajout d'une zone d'information pour t'aider à voir ce qui change mon amour." },
+    { at: "2026-03-03 10:36", text: "Historique des envois + suppression individuelle/globale + copie texte cliqué dans zone de texte." },
+    { at: "2026-03-03 10:27", text: "Ajout de la page demandes avec envoi de notification sur mon téléphone." },
+    { at: "2026-03-03 10:18", text: "Indicateur du bouton de la page active (fond blanc + contour visible)." },
+    { at: "2026-03-03 09:55", text: "Remplacement du bouton fixe par un menu." },
+    { at: "2026-02-26 11:12", text: "Ajout de la page avec toutes les raisons." },
+    { at: "2026-02-23 14:38", text: "Ajout de nouveaux textes de victoire pour le comparateur." },
+    { at: "2026-02-22 10:47", text: "Lancement de la premiere page de comparaison avec images predefinies et possibilite d'importer une photo a droite." }
+  ];
 
   function normalizeHtmlHref(rawHref) {
     if (!rawHref) return null;
@@ -112,9 +122,70 @@
     });
   }
 
+  function buildUpdatesWidget() {
+    if (UPDATE_LOG.length === 0) return;
+
+    const widget = document.createElement("details");
+    widget.className = "top-right-updates";
+
+    const toggle = document.createElement("summary");
+    toggle.className = "updates-toggle";
+    toggle.setAttribute("aria-label", "Afficher les mises a jour");
+    toggle.textContent = "?";
+
+    const panel = document.createElement("section");
+    panel.className = "updates-content";
+
+    const title = document.createElement("h2");
+    title.className = "updates-title";
+    title.textContent = "Mises a jour";
+    panel.appendChild(title);
+
+    const list = document.createElement("ul");
+    list.className = "updates-list";
+
+    UPDATE_LOG.forEach((entry) => {
+      const item = document.createElement("li");
+      item.className = "updates-item";
+
+      const time = document.createElement("span");
+      time.className = "updates-date";
+      time.textContent = entry.at;
+
+      const text = document.createElement("p");
+      text.className = "updates-text";
+      text.textContent = entry.text;
+
+      item.appendChild(time);
+      item.appendChild(text);
+      list.appendChild(item);
+    });
+
+    panel.appendChild(list);
+    widget.appendChild(toggle);
+    widget.appendChild(panel);
+    document.body.prepend(widget);
+
+    document.addEventListener("click", (event) => {
+      if (widget.open && !widget.contains(event.target)) {
+        widget.open = false;
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        widget.open = false;
+      }
+    });
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", buildMenu, { once: true });
+    document.addEventListener("DOMContentLoaded", () => {
+      buildMenu();
+      buildUpdatesWidget();
+    }, { once: true });
   } else {
     buildMenu();
+    buildUpdatesWidget();
   }
 })();
