@@ -5,6 +5,7 @@
     { href: "notifications.html", label: "Demandes" }
   ];
   const UPDATE_LOG = [
+    { at: "Le 05-03-2026 à 15:19", text: "4 nouvelles raisons ajoutées." },
     { at: "Le 03-03-2026 à 13:52", text: "Meilleure lisibilité générale des deux menus (plus de fond transparent)." },
     { at: "Le 03-03-2026 à 13:44", text: "Meilleur lisibilité du jour et de l'heure du menu maj." },
     { at: "Le 03-03-2026 à 13:35", text: "Ajout d'une zone d'information pour t'aider à voir ce qui change mon amour." },
